@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Flight control tower</h1>
+
+
+        @foreach (var item in Model.Legs)
+        {
+
+            if (item.Used == Entities.UsedTo.Landing)
+            {
+                <button type="button" class="btn btn-primary btn-lg btn-block"></button>
+            }
+            else if (item.Used == Entities.UsedTo.Both)
+            {
+                <button type="button" class="btn btn-success btn-lg btn-block"></button>
+            }
+            else
+            {
+                <button type="button" class="btn btn-warning btn-lg btn-block"></button>
+            }
+         }
+
+</div>
+
+<p id="123"></p>
+
+<div id="messages"></div>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/js/Messages.js"></script>
